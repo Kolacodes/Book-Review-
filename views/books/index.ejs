@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+<div class="container"> 
+<header class="jumbotron">
+        <h1>Welcome to Book Review</h1>
+        <p>Cherrypick on one of our amazing stack of books and live diffrently for aye</p> 
+        <p>
+            <a class="btn btn-primary btn-large" href="/books/new">Add a new Book</a>
+        </p>
+    </header>
+
+<div class="row">
+       <% new_books.forEach(function(new_book) { %>
+          <div class="col-md-3 col-sm-2">
+              <div class="thumbnail"> 
+                  <img src="<%=new_book.image%>" alt=""> 
+                  <div class="caption"> 
+                      <h6><%=new_book.title%></h6>
+                      <!-- <h6><%=new_book.author%></h6>
+                      <h6><%=new_book.description%></h6> -->
+                  </div>
+                  <p> <a href="/books/<%= new_book._id %>" class="btn btn-primary">Read Review</a>   </p>
+              </div>
+          </div>
+        <%  }); %>
+</div>
+
+</div>
+
+<% include ../partials/footer %>
+
+<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore id obcaecati eaque quod nemo! Harum, voluptatum. Assumenda nisi, adipisci ratione reprehenderit quo totam incidunt, sed alias vitae, vel natus quae. -->
+
+<!-- https://images.pexels.com/photos/33283/stack-of-books-vintage-books-book-books.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500
+
+
+https://images.pexels.com/photos/33283/stack-of-books-vintage-books-book-books.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500
+https://images.pexels.com/photos/34592/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500
+https://images.pexels.com/photos/459791/pexels-photo-459791.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500
+https://images.pexels.com/photos/1809340/pexels-photo-1809340.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500 -->

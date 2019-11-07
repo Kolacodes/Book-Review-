@@ -1,0 +1,64 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Book Review</p>
+            <div class="list-group">
+                <li class="list-group-item active">Info 1</li>
+                <li class="list-group-item">Info 2</li>
+                <li class="list-group-item">Info 3</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img style="width: 100%" src="<%=new_book.image%>" alt="">
+                <div class="caption-full">
+                    <h4 class="pull-right">#5000</h4>
+                    <h4><a href=""><%=new_book.title%></a></h4>
+                    <p><%=new_book.review%></p>
+                    <p><em>Posted By <%=new_book.postedBy.username%></em></p>
+
+                    <% if(currentUser && String(new_book.postedBy.id) === String(currentUser._id)){ %>
+                    <a class="btn btn-xs btn-warning" href="/books/<%= new_book._id%>/edit">Edit</a>
+                    <form id="delete-book" action="/books/<%= new_book._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-xs btn-danger">Delete</button>
+                    </form>
+                    <% }%>
+                    
+
+                    
+
+                </div>
+                 
+            </div>
+            <div class="well">
+                <div class="text-right">
+                        <a class="btn btn-success" href="/books/<%=new_book._id%>/comments/new">Add New Comment</a>
+                </div>
+                <hr>
+                <% new_book.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12"></div>
+                           <strong><%= comment.name.username %></strong>
+                           <span class="pull-right">10 days ago</span>
+                           <p>
+                               <%= comment.text %>        
+                           </p>
+                    <% if(currentUser && String(comment.name.id) === String(currentUser._id)){ %>
+                           <a class="btn btn-xs btn-warning"
+                              href="/books/<%=new_book._id%>/comments/<%=comment._id%>/edit">
+                              Edit
+                           </a>
+                           <form id="delete-book" action="/books/<%=new_book._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete"> </input>
+                           </form>
+                    <% }%>
+                    </div>
+               <% }); %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
