@@ -43,7 +43,7 @@ body {
 
 
   .slideshow li:nth-child(1) { 
-    background-image: url(https://images.pexels.com/photos/1438252/pexels-photo-1438252.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500) 
+    background-image: url(https://images.pexels.com/photos/1125130/pexels-photo-1125130.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500) 
   }
   .slideshow li:nth-child(2) { 
     background-image: url(https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
