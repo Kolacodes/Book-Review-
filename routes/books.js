@@ -25,18 +25,19 @@ router.get("/", function(req, res) {
   router.post("/", middleware.isLoggedIn, function(req, res) {
     // get data from form 
     var title = req.body.title;
+    var price = req.body.price;
     var image = req.body.image;
     var review = req.body.review;
     var postedBy = {
       id: req.user._id,
       username: req.user.username
-    }
-    var new_book = {title:title, image: image, review: review, postedBy:postedBy}
+    };
+    var new_book = {title:title, price:price, image: image, review: review, postedBy:postedBy}
     // create a new book and save in the DB
-    Book_review.create(new_book, function(err, newlyCreated){
+    Book_review.create(new_book, function(err, new_book){
       if(err){console.log(err);
       } else {
-        console.log(newlyCreated)
+        // console.log(newlyCreated)
         res.redirect("/");
       }
     });
@@ -69,7 +70,7 @@ router.get("/", function(req, res) {
 
 
 
-  // EDIT CAMPGROUND ROUTE
+  // EDIT BOOK ROUTE
   router.get("/:id/edit", middleware.checkBookOwnership, function(req, res){
     Book_review.findById(req.params.id, function(err, foundBook){
                  res.render("books/edit", {new_book: foundBook});
@@ -78,7 +79,7 @@ router.get("/", function(req, res) {
   });
 
 
-  // UPDATE CAMPGROUND ROUTE
+  // UPDATE BOOK ROUTE
 router.put("/:id", middleware.checkBookOwnership, function(req, res){
   //find and update the correct new_book
   Book_review.findByIdAndUpdate(req.params.id, req.body.new_book, function(err, updatedBook){

@@ -1,6 +1,6 @@
 <html lang="en">
     <head>
-        <title>YelpCamp</title>
+        <title>Book Review</title>
         <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/main.css">
   
@@ -19,7 +19,7 @@
                                <li><a href="/login">Login</a></li>
                                <li><a href="/register">Sign Up</a></li>
                           <% } else { %>
-                               <li>Signed In As <%= currentUser.username %></li>
+                               <li><a >Signed In As <%= currentUser.username %></a></li>
                                <li><a href="/logout">Logout</a></li>
                           <% } %>
                         </ul>
@@ -27,5 +27,21 @@
                     </div>
               
                   </nav>
+                  <div class="container">
+                      <% if(error && error.length > 0){ %>
+                      <div class="alert alert-danger" role="alert">
+                            <%= error %>
+                        </div>
+                      <% } %>
+                      <% if(success && success.length > 0){ %>
+                        <div class="alert alert-success" role="alert">
+                            <%= success %>
+                          </div>
+                      <% } %>
+
+                        
+
+                  </div>
+                  
               
              

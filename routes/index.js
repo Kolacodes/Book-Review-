@@ -4,7 +4,7 @@ var passport = require("passport");
 var User     = require("../models/user")
 
 router.get("/", function(req, res) {
-    res.render("home");
+    res.render("landing");
 });
 
 
@@ -22,10 +22,12 @@ router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, function(err, user){
       if(err){
+        req.flash("error", err.message);
         console.log(err);
         return res.render("register")
       }
       passport.authenticate("local")(req, res, function(){
+      req.flash("error", "Welcome to Book Review" + user.username);
         res.redirect("/books");
       });
     });
@@ -46,16 +48,17 @@ router.post("/login", passport.authenticate("local",
 // logout route
 router.get("/logout", function(req, res){
   req.logout();
+  req.flash("success", "logged you out!");
   res.redirect("/books");
 });
 
-//middleware
-function isLoggedIn(req, res, next){
-  if(req.isAuthenticated()){
-    return next();
-  }
-  res.redirect("/login")
-};
+// //middleware
+// function isLoggedIn(req, res, next){
+//   if(req.isAuthenticated()){
+//     return next();
+//   }
+//   res.redirect("/login")
+// };
 
 
 module.exports = router;

@@ -27,6 +27,7 @@ router.get("/new",  middleware.isLoggedIn, function(req, res){
   router.post("/",  middleware.isLoggedIn, function(req, res){
     Book_review.findById(req.params.id, function(err, new_book){
       if(err){
+        req.flash("error", "Something went wrong");
         console.log(err);
         res.redirect("/books");
       } else {
@@ -43,6 +44,7 @@ router.get("/new",  middleware.isLoggedIn, function(req, res){
             new_book.comments.push(comment);
             new_book.save();
             console.log(comment);
+            req.flash("success", "Successfully added comment");
             res.redirect('/books/' + new_book._id);
           }
         });
@@ -83,6 +85,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
     if(err){
       res.redirect("back");
     } else {
+      req.flash("success", "Comment deleted");
       res.redirect("/books/" + req.params.id)
     }
   });

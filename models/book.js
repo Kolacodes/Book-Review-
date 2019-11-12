@@ -3,6 +3,7 @@ var mongoose = require ("mongoose");
 // SCHEMA SETUP
 var book_reviewSchema = new mongoose.Schema({
     title: String,
+    price: String,
     author: String,
     postedBy: {
         id: {
