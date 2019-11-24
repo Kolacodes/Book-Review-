@@ -1,5 +1,6 @@
 var express = require ("express"),
     app = express(),
+    port = process.env.PORT || 5000
     bodyParser = require ("body-parser"),
     mongoose = require ("mongoose"),
     flash    =  require("connect-flash"),
@@ -19,9 +20,9 @@ var express = require ("express"),
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
-// mongoose.connect("mongodb://localhost/book_review", {useNewUrlParser: true, useUnifiedTopology: true} );
+mongoose.connect("mongodb://localhost/book_review", {useNewUrlParser: true, useUnifiedTopology: true} );
 
-mongoose.connect("mongodb+srv://root:teedanjum@cluster0-7g0u4.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true} );
+// mongoose.connect("mongodb+srv://root:teedanjum@cluster0-7g0u4.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true} );
 
 
 // mongodb+srv://root:<password>@cluster0-7g0u4.mongodb.net/test?retryWrites=true&w=majority
@@ -55,10 +56,10 @@ app.use(function(req, res, next ){
 
 //requiring routes
 app.use("/", indexRoutes);
-app.use("/books", bookRoutes);
+app.use("/books", bookRoutes); 
 app.use("/books/:id/comments", commentRoutes);
 
 
-app.listen(3000, function(){
+app.listen(port, function(){
     console.log("The Book Review server just started")
 });
