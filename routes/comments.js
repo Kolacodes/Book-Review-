@@ -24,6 +24,26 @@ router.get("/new",  middleware.isLoggedIn, function(req, res){
   
   // comment create
 
+  // router.post("/", middleware.isLoggedIn, function(req, res) {
+  //   // get data from form 
+  //   var title = req.body.title;
+  //   var price = req.body.price;
+  //   var image = req.body.image;
+  //   var review = req.body.review;
+  //   var postedBy = {
+  //     id: req.user._id,
+  //     username: req.user.username
+  //   };
+  //   var new_book = {title:title, price:price, image: image, review: review, postedBy:postedBy}
+  //   // create a new book and save in the DB
+  //   Book_review.create(new_book, function(err, new_book){
+  //     if(err){console.log(err);
+  //     } else {
+  //       // console.log(newlyCreated)
+  //       res.redirect("/");
+  //     }
+  //   });
+
   router.post("/",  middleware.isLoggedIn, function(req, res){
     Book_review.findById(req.params.id, function(err, new_book){
       if(err){
@@ -31,15 +51,20 @@ router.get("/new",  middleware.isLoggedIn, function(req, res){
         console.log(err);
         res.redirect("/books");
       } else {
-        
-        Comment.create(req.body.comment, function(err, comment){
+        //get data from comment form
+        var text = req.body.text;
+        var id = req.user._id;
+        var username = req.user.username;
+        var comment = {text:text, id:id, username:username};
+        //create a new comment and save in the DB
+        Comment.create(comment, function(err, comment){
           if(err){
             console.log(err)
           } else {
-            // add username and id to comment
-           comment.name.id = req.user._id;
-           comment.name.username = req.user.username;
-        // save comment
+          //   // add username and id to comment
+          //  comment.name.id = req.user._id;
+          //  comment.name.username = req.user.username;
+        // else save comment in the DB
             comment.save();
             new_book.comments.push(comment);
             new_book.save();

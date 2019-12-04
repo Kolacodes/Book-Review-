@@ -43,7 +43,7 @@
                            <strong><%= comment.name.username %></strong>
                            <span class="pull-right">10 days ago</span>
                            <p>
-                               <%= comment.text %>        
+                               <%- comment.text %>        
                            </p>
                     <% if(currentUser && String(comment.name.id) === String(currentUser._id)){ %>
                            <a class="btn btn-xs btn-warning"

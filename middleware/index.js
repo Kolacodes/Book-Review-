@@ -1,9 +1,14 @@
 //all middleware goes here
+
 var Book_review = require("../models/book");
 var Comment = require("../models/comment");
 
 
 var middlewareObj = {};
+
+
+
+//middleware  1
 
 middlewareObj.checkBookOwnership = function(req, res, next){
   if(req.isAuthenticated()){
@@ -27,6 +32,10 @@ middlewareObj.checkBookOwnership = function(req, res, next){
 
 
 }
+
+
+
+//middleware  2
 
 middlewareObj.checkCommentOwnership = function (req, res, next){
   if(req.isAuthenticated()){
@@ -54,6 +63,9 @@ middlewareObj.checkCommentOwnership = function (req, res, next){
 
 };
 
+
+
+//middleware  3
 
 middlewareObj.isLoggedIn = function (req, res, next){
   if(req.isAuthenticated()){

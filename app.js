@@ -16,19 +16,19 @@ var express = require ("express"),
         bookRoutes    = require("./routes/books"),
         indexRoutes   = require("./routes/index");
 
-// var url = "mongodb://localhost/book_review";
+var url = "mongodb://localhost/book_review";
 
-var url = "mongodb+srv://root:mypassword@cluster0-7g0u4.mongodb.net/test?retryWrites=true&w=majority";
+// var url = "mongodb+srv://root:teedanjum@cluster0-7g0u4.mongodb.net/test?retryWrites=true&w=majority/book_review";
 
 
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
-mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true} );
-
-// mongoose.connect("mongodb+srv://root:teedanjum@cluster0-7g0u4.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true} );
-
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true} )
+  .then(() => {
+    console.log('Mongo Connected')
+  });
 
 
 
