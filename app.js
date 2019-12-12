@@ -16,9 +16,13 @@ var express = require ("express"),
         bookRoutes    = require("./routes/books"),
         indexRoutes   = require("./routes/index");
 
-var url = "mongodb://localhost/book_review";
+// var url = "mongodb://localhost/book_review";
 
-// var url = "mongodb+srv://root:teedanjum@cluster0-7g0u4.mongodb.net/test?retryWrites=true&w=majority/book_review";
+
+// var url= "mongodb+srv://root:teedanjum@cluster0-one8w.mongodb.net/test?retryWrites=true&w=majority/book_review";
+
+var url = "mongodb+srv://root:mypassword@bookreviewcluster-mrefw.mongodb.net/Kolacodes?retryWrites=true&w=majority";
+
 
 
 

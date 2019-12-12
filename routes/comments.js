@@ -22,63 +22,40 @@ router.get("/new",  middleware.isLoggedIn, function(req, res){
     
   });
   
-  // comment create
 
-  // router.post("/", middleware.isLoggedIn, function(req, res) {
-  //   // get data from form 
-  //   var title = req.body.title;
-  //   var price = req.body.price;
-  //   var image = req.body.image;
-  //   var review = req.body.review;
-  //   var postedBy = {
-  //     id: req.user._id,
-  //     username: req.user.username
-  //   };
-  //   var new_book = {title:title, price:price, image: image, review: review, postedBy:postedBy}
-  //   // create a new book and save in the DB
-  //   Book_review.create(new_book, function(err, new_book){
-  //     if(err){console.log(err);
-  //     } else {
-  //       // console.log(newlyCreated)
-  //       res.redirect("/");
-  //     }
-  //   });
+// comment create
 
-  router.post("/",  middleware.isLoggedIn, function(req, res){
-    Book_review.findById(req.params.id, function(err, new_book){
-      if(err){
-        req.flash("error", "Something went wrong");
-        console.log(err);
-        res.redirect("/books");
-      } else {
-        //get data from comment form
-        var text = req.body.text;
-        var id = req.user._id;
-        var username = req.user.username;
-        var comment = {text:text, id:id, username:username};
-        //create a new comment and save in the DB
-        Comment.create(comment, function(err, comment){
-          if(err){
-            console.log(err)
-          } else {
-          //   // add username and id to comment
-          //  comment.name.id = req.user._id;
-          //  comment.name.username = req.user.username;
-        // else save comment in the DB
-            comment.save();
-            new_book.comments.push(comment);
-            new_book.save();
-            console.log(comment);
-            req.flash("success", "Successfully added comment");
-            res.redirect('/books/' + new_book._id);
-          }
-        });
+router.post("/",  middleware.isLoggedIn, function(req, res){
+  Book_review.findById(req.params.id, function(err, new_book){
+    if(err){
+      req.flash("error", "Something went wrong");
+      console.log(err);
+      res.redirect("/books");
+    } else {
+      
+      Comment.create(req.body.comment, function(err, comment){
+        if(err){
+          console.log(err)
+        } else {
+          // add username and id to comment
+         comment.name.id = req.user._id;
+         comment.name.username = req.user.username;
+      // save comment
+          comment.save();
+          new_book.comments.push(comment);
+          new_book.save();
+          console.log(comment);
+          req.flash("success", "Successfully added comment");
+          res.redirect('/books/' + new_book._id);
+        }
+      });
+
+    }
+  })
+});
+
+
   
-      }
-    })
-  });
-  
-
 // COMMENT EDIT ROUTE 
 router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
   Comment.findById(req.params.comment_id, function(err, foundComment){
