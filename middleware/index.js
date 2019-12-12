@@ -31,7 +31,7 @@ middlewareObj.checkBookOwnership = function(req, res, next){
     }
 
 
-}
+};
 
 
 

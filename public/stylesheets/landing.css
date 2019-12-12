@@ -43,22 +43,22 @@ body {
 
 
   .slideshow li:nth-child(1) { 
-    background-image: url(https://images.pexels.com/photos/1125130/pexels-photo-1125130.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500) 
+    background-image: url(https://images.pexels.com/photos/371954/pexels-photo-371954.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
   }
   .slideshow li:nth-child(2) { 
     background-image: url(https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     animation-delay: 10s; 
   }
   .slideshow li:nth-child(3) { 
-    background-image: url(https://images.pexels.com/photos/217661/pexels-photo-217661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-image: url(https://images.pexels.com/photos/48020/books-education-school-literature-48020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     animation-delay: 20s; 
   }
   .slideshow li:nth-child(4) { 
-    background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+    background-image: url(https://images.pexels.com/photos/48020/books-education-school-literature-48020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     animation-delay: 30s; 
   }
   .slideshow li:nth-child(5) { 
-    background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+    background-image: url(https://images.pexels.com/photos/267586/pexels-photo-267586.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     animation-delay: 40s; 
   }
 

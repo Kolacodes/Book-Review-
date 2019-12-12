@@ -27,7 +27,7 @@ router.post("/register", function(req, res){
         return res.render("register")
       }
       passport.authenticate("local")(req, res, function(){
-      req.flash("error", "Welcome to Book Review" + user.username);
+      req.flash("error", "Welcome to Book Review" + ' ' + user.username);
         res.redirect("/books");
       });
     });

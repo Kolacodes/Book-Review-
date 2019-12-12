@@ -18,11 +18,7 @@ var express = require ("express"),
 
 // var url = "mongodb://localhost/book_review";
 
-
-// var url= "mongodb+srv://root:teedanjum@cluster0-one8w.mongodb.net/test?retryWrites=true&w=majority/book_review";
-
 var url = "mongodb+srv://root:mypassword@bookreviewcluster-mrefw.mongodb.net/Kolacodes?retryWrites=true&w=majority";
-
 
 
 
@@ -33,7 +29,6 @@ mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true} )
   .then(() => {
     console.log('Mongo Connected')
   });
-
 
 
 app.use(methodOverride("_method"));

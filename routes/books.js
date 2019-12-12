@@ -94,7 +94,6 @@ router.put("/:id", middleware.checkBookOwnership, function(req, res){
 });
 
 
-
 // DESTROY BOOK ROUTE
 router.delete("/:id", middleware.checkBookOwnership, function(req, res){
   Book_review.findByIdAndRemove(req.params.id, function(err, deletedBook){
