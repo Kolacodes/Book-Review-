@@ -1,20 +1,14 @@
 
-              
-             
-
-
-
-
-<!DOCTYPE html>
+                  <!DOCTYPE html>
 <html>
     <head>
         <title>ReadRight</title>
-        <meta name=”description” content="A Campground Rating Site that uses REST-ful API">
+        <meta name=”description” content="A Book Rating Site that uses REST-ful API">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="/stylesheets/main.css">
-
+        <!-- <link rel="stylesheet" href="/style.css"> -->
+        <link rel="stylesheet" href="/stylesheets/main.css"> 
         <link rel="stylesheet" href="/animate.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -50,45 +44,44 @@
                     <% if(!currentUser){ %>
                         <li><a href="/login"><span class="glyphicon glyphicon-log-in"  aria-hidden="true" ></span> Login</a></li>
                         <li><a href="/register"><i class="material-icons md-18">person_add</i> Sign Up</a></li>
-                    <% } else { %>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <strong><%=currentUser.username%></strong>
-                                <span class="glyphicon glyphicon-chevron-down"></span>
-                            </a>
-                            <ul role="menu" class="dropdown-menu">
-                                <li>
-                                    <div class="navbar-login">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <p class="text-center">
-                                                    <span class="glyphicon glyphicon-user icon-size"></span>
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <p class="text-left"><strong><%=currentUser.username%></strong></p>
-                                                <p class="text-left small"><%=currentUser.email%></p>
-                                                <p class="text-left">
-                                                    <a href="" class="btn btn-primary btn-block btn-sm">Profile</a>
-                                                    <!-- <a href="/profiles/<%=currentUser.username%>" class="btn btn-primary btn-block btn-sm">Profile</a> -->
-
-                                                </p>
+                        <% } else { %>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    <strong><%=currentUser.username%></strong>
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                                <ul role="menu" class="dropdown-menu">
+                                    <li>
+                                        <div class="navbar-login">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <p class="text-center">
+                                                        <span class="glyphicon glyphicon-user icon-size"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <p class="text-left"><strong><%=currentUser.username%></strong></p>
+                                                    <p class="text-left small"><%=currentUser.email%></p>
+                                                    <p class="text-left">
+                                                        <a href="" class="btn btn-primary btn-block btn-sm">Profile</a>
+                                                        <!-- <a href="/profiles/<%=currentUser.username%>" class="btn btn-primary btn-block btn-sm">Profile</a> -->
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <!-- <li><a class="hov" href="/books">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li> -->
-                                <!-- <li><a class="hov" href="/change-password">Change Password <span class="glyphicon glyphicon-lock pull-right"></span></a></li> -->
-                                <li><a class="hov"  href="/logout">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
-                            </ul>
-                        </li>
-                    <% } %>
-                </ul>
+                                    </li>
+                                    <!-- <li><a class="hov" href="/campgrounds">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li> -->
+                                    <!-- <li><a class="hov" href="/change-password">Change Password <span class="glyphicon glyphicon-lock pull-right"></span></a></li> -->
+                                    <li><a class="hov"  href="/logout">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                                </ul>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-
+        </nav>
+    
 
     <div class="container">
       <% if(error && error.length > 0){ %>
@@ -105,3 +98,32 @@
         
 
   </div>
+
+
+
+
+
+
+  <!DOCTYPE html>
+<html>
+    <head>
+        <title>YelpCamp</title>
+        <meta name=”description” content="A Campground Rating Site that uses REST-ful API">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="/style.css"> -->
+        <link rel="stylesheet" href="/stylesheets/main.css"> 
+        <link rel="stylesheet" href="/animate.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5136672011435752",
+            enable_page_level_ads: true
+            });
+        </script>
+    </head>
+   
