@@ -4,7 +4,7 @@ A book review app
 >A Book review site that uses RESTful API<br>
 >Link: https://read-right.herokuapp.com
 ## Overview:
-> <p> In this website, Users can create new <em>booms</em> and comment and rate other's 
+> <p> In this website, Users can create new <em>books</em> and comment and rate other's 
 > <em>books</em>.</p>
 
 ## Usage:
