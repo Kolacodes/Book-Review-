@@ -24,7 +24,7 @@ https://docs.npmjs.com/getting-started/installing-node
 2. In another terminal window, run these commands:
 ```
 git clone https://github.com/Kolacodes/book-review.git
-cd readright
+cd bookreview
 npm install
 npm start
 ```
